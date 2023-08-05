@@ -26,10 +26,25 @@
                     </div>
                     <div class="form-group col-md-6">
                         <label for="">Password:</label><br>
-                        <button type="submit" class="btn btn-primary">RESET PASSWORD</button>
+                        @if(session()->get('success'))
+                            <div class="alert alert-success">
+                                {{ session()->get('success') }}  
+                            </div>
+                        @endif
+                        <a class="btn btn-primary" href="" onclick="event.preventDefault(); document.getElementById('reset-password-form').submit();">{{ __('RESET PASSWORD') }}</a>    
                     </div>
-                </div><br><br>
+                </div><hr>
                 <button type="submit" class="btn btn-success" style="width: 200px">SAVE</button>
+            </form>
+
+            <form 
+                method="POST" 
+                id="reset-password-form"
+                action="{{ route('userSaveEditAdmModule', $user->id) }}"  
+                class="d-none">
+                @method('PUT')
+                @csrf
+                <input type="hidden" value="1" name="passReset">
             </form>
         </div>
     </main>
