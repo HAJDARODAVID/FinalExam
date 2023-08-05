@@ -5,6 +5,7 @@
     @vite(['resources/js/app.js'])
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <title>Office Management</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/dashboard/">
@@ -213,11 +214,14 @@
 
 <div class="container-fluid">
   <div class="row">
+
     <x-admin-module-menu-items></x-admin-module-menu-items>
 
     @yield('content')
+
     
   </div>
+
 </div>
 
 

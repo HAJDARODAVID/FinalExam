@@ -3,25 +3,21 @@
 namespace App\View\Components;
 
 use Closure;
+use App\Models\User;
 use Illuminate\View\Component;
-use App\Models\admModuleItemsModel;
 use Illuminate\Contracts\View\View;
-use Illuminate\Support\Facades\Route;
 
-class adminModuleMenuItems extends Component
+class userTable extends Component
 {
-
-    public $items;
-    public $route;
+    
+    public $users;
 
     /**
      * Create a new component instance.
      */
     public function __construct()
     {
-        $this->items = admModuleItemsModel::all();
-        $this->route = Route::current()->getName();
-
+        $this->users = User::all();
     }
 
     /**
@@ -29,6 +25,6 @@ class adminModuleMenuItems extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.admin-module-menu-items');
+        return view('components.user-table');
     }
 }
