@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('route');
             $table->integer('order');
+            $table->integer('active');
         });
     }
 

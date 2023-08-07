@@ -18,16 +18,31 @@ class AdminModuleItemsSeeder extends Seeder
                     'name' => 'Dashboard',
                     'route' => 'mainAdminModule',
                     'order' => '1',
+                    'active' => '1',
                 ],
                 [
                     'name' => 'Users',
                     'route' => 'userAdminModule',
-                    'order' => '2'
+                    'order' => '2',
+                    'active' => '1',
                 ],
                 [
                     'name' => 'Posts',
                     'route' => 'home',
-                    'order' => '3'
+                    'order' => '3',
+                    'active' => '1',
+                ],
+                [
+                    'name' => 'Adm Menu Items',
+                    'route' => 'home',
+                    'order' => '4',
+                    'active' => '1',
+                ],
+                [
+                    'name' => 'Main Menu Items',
+                    'route' => 'home',
+                    'order' => '4',
+                    'active' => '1',
                 ]
         ]);
     }

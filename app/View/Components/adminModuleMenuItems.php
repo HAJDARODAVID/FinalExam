@@ -19,7 +19,7 @@ class adminModuleMenuItems extends Component
      */
     public function __construct()
     {
-        $this->items = admModuleItemsModel::all();
+        $this->items = admModuleItemsModel::where('active', 1)->orderby('order', 'asc')->get();
         $this->route = Route::current()->getName();
 
     }
