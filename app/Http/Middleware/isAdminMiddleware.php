@@ -16,7 +16,7 @@ class isAdminMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!Gate::allows('testGate')) {
+        if (!Gate::allows('admUser')) {
             return redirect('/');
         }
         return $next($request);

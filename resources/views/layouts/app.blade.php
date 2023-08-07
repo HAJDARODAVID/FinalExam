@@ -55,12 +55,12 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    
-                                    <a class="dropdown-item" href="{{ route('home') }}">
-                                        {{ __('Profile') }}
+
+                                    <a class="dropdown-item" href="{{ route('newPostForm') }}">
+                                        {{ __('New post') }}
                                     </a>
 
-                                    <a class="dropdown-item" href="{{ route('home') }}">
+                                    <a class="dropdown-item" href="{{ route('postsList') }}">
                                         {{ __('My posts') }}
                                     </a>
                                     

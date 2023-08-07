@@ -26,9 +26,6 @@ class HomeController extends Controller
     public function index()
     {   
 
-        if(!Gate::allows('testGate')){
-            return redirect('/');
-        }
         dd(Auth::hasUser());
         return view('home');
     }
