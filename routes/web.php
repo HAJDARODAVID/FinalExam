@@ -7,6 +7,8 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdmPostController;
 use App\Http\Controllers\admItemsController;
+use App\Http\Controllers\UserProfilController;
+use App\Http\Controllers\UserProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,12 +63,16 @@ Route::get('/post/{id}', [PostController::class, 'show'])->name('showPost');
 
 Route::middleware('auth')
     ->group(function(){
+        /**Posts */
         Route::get('/post', [PostController::class, 'index'])->name('newPostForm');
         Route::get('/my_posts', function(){return view('postList');})->name('postsList');
         Route::post('/post', [PostController::class, 'store'])->name('saveNewPost');
         Route::get('/post/edit/{id}', [PostController::class, 'edit'])->name('editPost');
         Route::put('/post/{id}', [PostController::class, 'put'])->name('storeEditPost');
         Route::delete('/post/{id}', [PostController::class, 'delete'])->name('deletePost');
+
+        /**Profil */
+        Route::get('/profile', [UserProfileController::class, 'index'])->name('userProfile');
 });
 
 

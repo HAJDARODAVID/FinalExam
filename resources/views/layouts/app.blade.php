@@ -63,7 +63,11 @@
                                     <a class="dropdown-item" href="{{ route('postsList') }}">
                                         {{ __('My posts') }}
                                     </a>
-                                    
+
+                                    <a class="dropdown-item" href="{{ route('userProfile') }}">
+                                        {{ __('Profile') }}
+                                    </a>
+
                                     @if (Auth::user()->role == '1')
                                         <a class="dropdown-item" href="{{ route('mainAdminModule') }}">
                                             {{ __('Admin module') }}
