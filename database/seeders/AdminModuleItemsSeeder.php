@@ -28,13 +28,13 @@ class AdminModuleItemsSeeder extends Seeder
                 ],
                 [
                     'name' => 'Posts',
-                    'route' => 'home',
+                    'route' => 'admPostModule',
                     'order' => '3',
                     'active' => '1',
                 ],
                 [
                     'name' => 'Adm Menu Items',
-                    'route' => 'home',
+                    'route' => 'admItemsModule',
                     'order' => '4',
                     'active' => '1',
                 ],

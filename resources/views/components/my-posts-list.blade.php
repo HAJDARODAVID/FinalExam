@@ -1,3 +1,4 @@
+
 <table class="table">
     <thead class="thead-dark" style="background-color: gray">
       <tr>
@@ -16,10 +17,9 @@
                 <td>{{ Str::limit($post->post_body, 155, $end='...') }}</td>
                 <td>{{ $post->created_at }}</td>
                 <td>
-                    {{-- EDIT BUTTON --}}
+                  {{-- EDIT BUTTON --}}
+                  @if ($type=='user')
                     <a class="btn btn-primary" href="{{ route('editPost', $post->id) }}" >{{ __('EDIT') }}</a>
-
-                    {{-- DELETE BUTTON --}}
                     <a class="btn btn-danger" href="" onclick="event.preventDefault();
                     document.getElementById('destoryPost-{{ $post->id }}-form').submit();">{{ __('DELETE') }}</a>
                     <form 
@@ -29,7 +29,26 @@
                       class="d-none">
                         @method('DELETE')
                         @csrf
-                    </form>
+                    </form> 
+                  @endif
+                  @if ($type=='adm')
+                    <a class="btn btn-primary" href="{{ route('showPost', $post->id) }}" >{{ __('SHOW') }}</a>
+                    <a class="btn btn-danger" href="" onclick="event.preventDefault();
+                    document.getElementById('destoryPost-{{ $post->id }}-form').submit();">{{ __('DELETE') }}</a>
+                    <form 
+                      id="destoryPost-{{ $post->id }}-form" 
+                      method="POST" 
+                      action="{{ route('deleteAdmPostModule', $post->id) }}"  
+                      class="d-none">
+                        @method('DELETE')
+                        @csrf
+                    </form> 
+                  @endif
+
+                    
+
+                    {{-- DELETE BUTTON --}}
+                    
                 </td>
                 
             </tr> 

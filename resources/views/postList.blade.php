@@ -14,7 +14,7 @@
                 </ul>
               </div>
             @endif
-            <x-my-posts-list></x-my-posts-list>
+            <x-my-posts-list type="user"></x-my-posts-list>
         </div>
     </main>
 

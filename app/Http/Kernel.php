@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\checkIfRouteExist;
 use App\Http\Middleware\isAdminMiddleware;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 

@@ -10,6 +10,10 @@ use function PHPUnit\Framework\isNull;
 
 class UserController extends Controller
 {
+    public function index(){
+        return view('userModule');
+    }
+    
     public function destroy($id){
         $user = User::where('id', $id)->first();
         $user->delete();

@@ -15,5 +15,13 @@ class admModuleItemsModel extends Model
      */
     protected $table = 'admin_module_menu_items';
 
+    protected $fillable = [
+        'name', 
+        'route',
+        'order', 
+        'active'
+    ];
+
+    public $timestamps = false;
     
 }

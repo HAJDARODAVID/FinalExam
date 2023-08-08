@@ -11,12 +11,15 @@ use Illuminate\Support\Facades\Auth;
 class myPostsList extends Component
 {
     public $posts;
+    public $type;
     /**
      * Create a new component instance.
      */
-    public function __construct()
+    public function __construct($type)
     {
-        $this->posts = PostModel::where('user_id', Auth::user()->id)->get();
+        $this->type = $type;
+        $this->posts = $this->getData($type);
+        
     }
 
     /**
@@ -25,5 +28,15 @@ class myPostsList extends Component
     public function render(): View|Closure|string
     {
         return view('components.my-posts-list');
+    }
+
+    public function getData($type){
+        if ($type=='user') {
+            return PostModel::where('user_id', Auth::user()->id)->get();
+        }
+
+        if ($type=='adm') {
+            return PostModel::orderBy('id', 'desc')->get();
+        }
     }
 }
