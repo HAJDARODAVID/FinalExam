@@ -16,6 +16,8 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             AdminModuleItemsSeeder::class,
             postsSeeder::class,
+            RolesSeeder::class,
+            UserRolesSeeder::class,
         ]);
     }
 }

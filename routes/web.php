@@ -9,6 +9,7 @@ use App\Http\Controllers\AdmPostController;
 use App\Http\Controllers\admItemsController;
 use App\Http\Controllers\UserProfilController;
 use App\Http\Controllers\UserProfileController;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,10 @@ use App\Http\Controllers\UserProfileController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::get('/test', function () {
+    dd(User::where('id', 1)->first()->roles());
+});
 
 Route::get('/', function () {
     return view('welcome');
