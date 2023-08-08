@@ -73,6 +73,7 @@ Route::middleware('auth')
 
         /**Profil */
         Route::get('/profile', [UserProfileController::class, 'index'])->name('userProfile');
+        Route::put('/profile', [UserProfileController::class, 'changePassword'])->name('changePassUserProfile');
 });
 
 
