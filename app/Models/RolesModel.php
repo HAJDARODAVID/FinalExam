@@ -9,4 +9,8 @@ class RolesModel extends Model
 {
     use HasFactory;
     protected $table = 'roles';
+
+    public const USR = 1;
+    public const EDITOR = 2;
+
 }

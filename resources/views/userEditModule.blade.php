@@ -20,10 +20,11 @@
                     </div><br>
                     <div class="form-group col-md-6">
                         <label for="">Is admin?:</label><br>
-                        <input class="form-check-input" type="checkbox" @if ($user->role == 1)
+                        <input class="form-check-input" type="checkbox" @if ($user->is_admin == 1)
                         checked
-                        @endif name='role'>
+                        @endif name='is_admin'>
                     </div>
+                    <hr>
                     <div class="form-group col-md-6">
                         <label for="">Password:</label><br>
                         @if(session()->get('success'))

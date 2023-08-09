@@ -17,15 +17,16 @@ class RolesSeeder extends Seeder
             [
                 'sort_text' => 'USR',
                 'long_text' => 'Registered user',
+                'description' => 'Can only read posts and leave a comment',
+                'gate_name' => 'user',
             ],
             [
-                'sort_text' => 'ADM',
-                'long_text' => 'Web site administrator',
+                'sort_text' => 'EDITOR',
+                'long_text' => 'Web site editor',
+                'description' => 'Can leave a post',
+                'gate_name' => 'editor',
             ],
-            [
-                'sort_text' => 'SADM',
-                'long_text' => 'Web site super admin',
-            ],
+            
     ]);
     }
 }

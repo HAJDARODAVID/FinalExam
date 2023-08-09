@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             postsSeeder::class,
             RolesSeeder::class,
             UserRolesSeeder::class,
+            MainMenuItemsSeeder::class,
         ]);
     }
 }

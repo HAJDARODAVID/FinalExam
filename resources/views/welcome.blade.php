@@ -13,7 +13,6 @@
         @endif
             <h3>Latest post about hot peppers</h3>
             <hr>
-
             <x-posts-cards></x-posts-cards>
         </div>
     </div>

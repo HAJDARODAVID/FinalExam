@@ -3,17 +3,27 @@
 @section('content')
     <main class="d-flex justify-content-center ">
         <div class="conteiner" style="margin-top: 20px; width: 40%">
+          @if(session()->get('success'))
+              <div class="alert alert-success">
+                  {{ session()->get('success') }}  
+              </div>
+          @endif
             <h3>Profile for user: #{{ $user->id }} - {{ $user->name }}</h3>
             <hr>
             <h5>Basic info</h5>
-            <div class="form-group">
+            <form action="{{ route('editUserProfile' , $user->id)}}" method="POST" id="edit-user-form">
+              @method('PUT')
+              @csrf
+              <div class="form-group">
                 <label for="name">User name</label>
                 <input type="text" class="form-control" id="name" name="name" disabled value="{{ $user->name }}">
-            </div><br>
-            <div class="form-group">
-              <label for="email">User e-mail</label>
-              <input type="text" class="form-control" id="email" name="email" disabled value="{{ $user->email }}">
-          </div><br>
+              </div><br>
+              <div class="form-group">
+                <label for="email">User e-mail</label>
+                <input type="text" class="form-control" id="email" name="email" disabled value="{{ $user->email }}">
+              </div><br>
+            </form>
+            
 
           <button 
             id="edite"
@@ -28,7 +38,8 @@
             EDIT
           </button>
 
-          <button class="btn btn-success" id="save" style="display: none">
+          <button class="btn btn-success" id="save" style="display: none" onclick="event.preventDefault();
+          document.getElementById('edit-user-form').submit();">
             SAVE
           </button>
           <button class="btn btn-secondary" id="cancle" style="display: none"
@@ -43,6 +54,28 @@
           <hr>
           <h5>Profile picture</h5>
 
+          <div class="d-flex">
+            <div class="p-2">
+              <img class="rounded-circle shadow-4-strong" alt="avatar2" src="/uploads/avatars/{{ $user->avatar }}" style="width: 200px; height: 200px" />
+            </div>
+            <form enctype="multipart/form-data" action="{{ route('uploadImageUserProfile') }}" method="POST" id="upload-image-form">
+              @method("POST")
+              @csrf
+              <div class="p-2">
+                <div class="mb-5">
+                  <label for="Image" class="form-label">Upload a new profile image</label>
+                  <input class="form-control" type="file" id="formFile" name="avatar">
+                  <button onclick="event.preventDefault();
+                  document.getElementById('upload-image-form').submit();" class="btn btn-primary mt-3">Upload image</button>
+                </div>
+              </div>
+            </form>
+
+          </div>
+          
+          {{-- 
+
+           --}}
 
           <hr>
 

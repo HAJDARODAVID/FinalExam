@@ -22,9 +22,7 @@ use App\Models\User;
 |
 */
 
-Route::get('/test', function () {
-    dd(User::where('id', 1)->first()->roles());
-});
+Route::get('/test', [App\Http\Controllers\HomeController::class, 'test']);
 
 Route::get('/', function () {
     return view('welcome');
@@ -79,6 +77,8 @@ Route::middleware('auth')
         /**Profil */
         Route::get('/profile', [UserProfileController::class, 'index'])->name('userProfile');
         Route::put('/profile', [UserProfileController::class, 'changePassword'])->name('changePassUserProfile');
+        Route::put('/profile/{id}', [UserProfileController::class, 'editUser'])->name('editUserProfile');
+        Route::post('/profile', [UserProfileController::class, 'uploadImage'])->name('uploadImageUserProfile');
 });
 
 

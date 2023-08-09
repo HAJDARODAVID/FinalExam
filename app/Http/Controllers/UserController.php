@@ -34,10 +34,10 @@ class UserController extends Controller
             $user->update(['password' => Hash::make('123456')]);
             return redirect()->back()->with('success', 'Password reset successfully');
         }
-        if ($request['role']=='on'){
-            $request['role'] = 1;
+        if ($request['is_admin']=='on'){
+            $request['is_admin'] = 1;
         }else{
-            $request['role'] = 0;
+            $request['is_admin'] = 0;
         }
         $request->validate([
             'name' => 'required',
