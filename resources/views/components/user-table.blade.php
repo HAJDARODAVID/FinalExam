@@ -25,6 +25,10 @@
                     {{-- EDIT BUTTON --}}
                     <a class="btn btn-primary" href="{{ route('userEditAdmModule', $user->id) }}" >{{ __('EDIT') }}</a>
 
+                    {{-- ROLES BUTTON --}}
+                    <a class="btn btn-success" href="{{ route('showRolesModel', $user->id) }}">{{ __('ROLES') }}
+                    </a>
+
                     {{-- DELETE BUTTON --}}
                     <a class="btn btn-danger" href="" onclick="event.preventDefault();
                     document.getElementById('destoryUser-{{ $user->id }}-form').submit();">{{ __('DELETE') }}</a>
@@ -41,3 +45,26 @@
         @endforeach
     </tbody>
   </table>
+
+  
+<div class="modal" id="rolesModel" @if(session()->get('show_modal')) style='display: block' @endif>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add new menu item</h5>
+      </div>
+      <div class="modal-body">
+
+              <x-edit-user-roles user="{{ session()->get('show_modal') }}"></x-edit-user-roles>
+
+      </div>
+      <div class="modal-footer">
+          
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="
+        document.getElementById('rolesModel').style.display='none'">Close</button>
+        <button type="button" class="btn btn-success" onclick="event.preventDefault();
+        document.getElementById('user-role-modal').submit();">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

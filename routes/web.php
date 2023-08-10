@@ -50,7 +50,9 @@ Route::middleware('isAdmin')
         Route::get('/users', [UserController::class, 'index'])->name('userAdminModule');
         Route::get('/users/{id}', [UserController::class, 'edit'])->name('userEditAdmModule'); 
         Route::put('/users/{id}', [UserController::class, 'put'])->name('userSaveEditAdmModule'); 
-        Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('userDestroyAdmModule'); 
+        Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('userDestroyAdmModule');
+        Route::get('/users/roles/{id}', [UserController::class, 'showModel'])->name('showRolesModel');  
+        Route::put('/users/roles/{id}', [UserController::class, 'editRoles'])->name('userRolesEditAdmModule'); 
 
          /**Adm Menu Items */
         Route::get('/admItems', [admItemsController::class, 'index'])->name('admItemsModule');

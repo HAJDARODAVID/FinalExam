@@ -10,5 +10,7 @@ class UserRolesModel extends Model
 {
     use HasFactory;
     protected $table = 'user_roles';
+    protected $fillable = ['user_id', 'role_id'];
+    public $timestamps = false;
 
 }
