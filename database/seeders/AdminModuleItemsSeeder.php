@@ -40,7 +40,7 @@ class AdminModuleItemsSeeder extends Seeder
                 ],
                 [
                     'name' => 'Main Menu Items',
-                    'route' => 'home',
+                    'route' => 'mainItemsModule',
                     'order' => '4',
                     'active' => '1',
                 ]

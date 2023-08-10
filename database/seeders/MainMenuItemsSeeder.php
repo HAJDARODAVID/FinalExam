@@ -16,21 +16,21 @@ class MainMenuItemsSeeder extends Seeder
         DB::table('main_menu_items')->insert([
             [
                 'name' => 'New Post',
-                'route' => 'mainAdminModule',
+                'route' => 'newPostForm',
                 'order' => '1',
                 'active' => '1',
                 'role_id' => '2',
             ],
             [
                 'name' => 'My posts',
-                'route' => 'mainAdminModule',
+                'route' => 'postsList',
                 'order' => '2',
                 'active' => '1',
                 'role_id' => '2',
             ],
             [
                 'name' => 'Profile',
-                'route' => 'mainAdminModule',
+                'route' => 'userProfile',
                 'order' => '3',
                 'active' => '1',
                 'role_id' => '1',

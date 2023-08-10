@@ -7,6 +7,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdmPostController;
 use App\Http\Controllers\admItemsController;
+use App\Http\Controllers\MainMenuItemsController;
 use App\Http\Controllers\UserProfilController;
 use App\Http\Controllers\UserProfileController;
 use App\Models\User;
@@ -57,7 +58,14 @@ Route::middleware('isAdmin')
         Route::delete('/admItems/{id}', [admItemsController::class, 'delete'])->name('deleteAdmMenuItem');
         Route::post('/admItems', [admItemsController::class, 'store'])->name('newAdmMenuItem');
 
-        /**Adm Menu Items */
+        /**Main Menu Items */
+        Route::get('/mainItems', [MainMenuItemsController::class, 'index'])->name('mainItemsModule');
+        Route::put('/mainItems/{id}/{type}', [MainMenuItemsController::class, 'changeStatus'])->name('changeMenuItemStatus');
+        Route::delete('/mainItems/{id}', [MainMenuItemsController::class, 'delete'])->name('deleteMenuItem');
+        Route::put('/mainItems/{id}', [MainMenuItemsController::class, 'edit'])->name('editMenuItem');
+        Route::post('/mainItems', [MainMenuItemsController::class, 'store'])->name('newMainMenuItem');
+
+        /**Post Module */
         Route::get('/admPosts', [AdmPostController::class, 'index'])->name('admPostModule');
         Route::delete('/admPosts/{id}', [AdmPostController::class, 'delete'])->name('deleteAdmPostModule');
 });

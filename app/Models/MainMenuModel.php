@@ -13,6 +13,16 @@ class MainMenuModel extends Model
     protected $table = 'main_menu_items';
     protected $primeryKey = 'id';
 
+    protected $fillable = [
+        'name', 
+        'route',
+        'order', 
+        'active',
+        'role_id'
+    ];
+
+    public $timestamps = false;
+
     public function roles(): HasOne
     {
         return $this->hasOne(RolesModel::class, 'id', 'roles_id');
