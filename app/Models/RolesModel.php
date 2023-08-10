@@ -16,4 +16,5 @@ class RolesModel extends Model
     public const USR = 1;
     public const EDITOR = 2;
 
+
 }

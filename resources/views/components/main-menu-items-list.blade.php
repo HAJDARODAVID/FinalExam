@@ -7,6 +7,7 @@
         <th scope="col">Name</th>
         <th scope="col">Route name</th>
         <th scope="col">Order</th>
+        <th scope="col">For role</th>
         <th scope="col">Is active?</th>
         <th scope="col">Actions</th>
       </tr>
@@ -18,6 +19,7 @@
                 <td>{{ $item->name }}</td>
                 <td>{{ $item->route }}</td>
                 <td>{{ $item->order }}</td>
+                <td>{{ $item->role_id }}</td>
                 <td> 
                   @if ($item->active == 1)
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
@@ -57,6 +59,7 @@
                             document.getElementById('itemsModal').style.display='block'
                             document.getElementById('exampleModalLabel').innerText = 'Change menu item #{{ $item->id }}'
                             document.getElementById('menuItemName').value = '{{ $item->name }}'
+                            document.getElementById('routeItemName').value = '{{ $item->route }}'
                             document.getElementById('modal-menu-item-form').action = '{{ route('editMenuItem', $item->id) }}'"
                         class="btn btn-primary">
                         EDIT
@@ -123,9 +126,22 @@
                 @method('PUT')
                 @csrf
                 <div class="form-group">
-                    <label for="menuItemName">Item name</label>
+                    <label for="menuItemName">Menu item name</label>
                     <input type="text" class="form-control" id="menuItemName" name="name">
-                </div>
+                </div><br>
+                <div class="form-group">
+                  <label for="menuItemName">Menu item route</label>
+                  <input type="text" class="form-control" id="routeItemName" name="route">
+              </div>
+              <div class="form-group col-md-4">
+                <label for="inputRole">State</label>
+                <select id="inputRole" class="form-control" name="role_id">
+                  <option value = "0" selected>Choose new role...</option>
+                  @foreach ($roles as $role)
+                  <option value="{{ $role->id }}">{{ $role->sort_text }}</option>  
+                  @endforeach
+                </select>
+              </div>
             </form>
         </div>
         <div class="modal-footer">

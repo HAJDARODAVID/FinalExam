@@ -56,6 +56,9 @@ class MainMenuItemsController extends Controller
     }
 
     public function edit(Request $request, $id){
+        if($request['role_id']==0){
+            unset($request['role_id']);
+        }
         $items = MainMenuModel::where('id', $id)->first();
         $oldName = $items->name;
         $items->update($request->except(['_token', '_method' ]));
