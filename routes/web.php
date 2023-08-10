@@ -1,16 +1,17 @@
 <?php
 
+use App\Models\User;
 use App\Models\admModuleItemsModel;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\RolesController;
 use App\Http\Controllers\AdmPostController;
 use App\Http\Controllers\admItemsController;
-use App\Http\Controllers\MainMenuItemsController;
 use App\Http\Controllers\UserProfilController;
 use App\Http\Controllers\UserProfileController;
-use App\Models\User;
+use App\Http\Controllers\MainMenuItemsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -65,9 +66,14 @@ Route::middleware('isAdmin')
         Route::put('/mainItems/{id}', [MainMenuItemsController::class, 'edit'])->name('editMenuItem');
         Route::post('/mainItems', [MainMenuItemsController::class, 'store'])->name('newMainMenuItem');
 
-        /**Post Module */
+        /**Roles Module */
         Route::get('/admPosts', [AdmPostController::class, 'index'])->name('admPostModule');
         Route::delete('/admPosts/{id}', [AdmPostController::class, 'delete'])->name('deleteAdmPostModule');
+
+        Route::get('/roles', [RolesController::class, 'index'])->name('rolesModule');
+        Route::put('/roles/{id}', [RolesController::class, 'edit'])->name('editRolesModule');
+        Route::delete('/roles/{id}', [RolesController::class, 'delete'])->name('deleteRolesModule');
+        Route::post('/roles', [RolesController::class, 'store'])->name('newRolesModule');
 });
 
 Route::get('/post/{id}', [PostController::class, 'show'])->name('showPost');

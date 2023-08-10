@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('sort_text');
             $table->string('long_text');
-            $table->string('description');
-            $table->string('gate_name');
+            $table->string('description')->nullable();
+            $table->string('gate_name')->nullable();
         });
     }
 

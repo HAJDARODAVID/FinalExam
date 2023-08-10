@@ -43,6 +43,12 @@ class AdminModuleItemsSeeder extends Seeder
                     'route' => 'mainItemsModule',
                     'order' => '4',
                     'active' => '1',
+                ],
+                [
+                    'name' => 'Roles',
+                    'route' => 'rolesModule',
+                    'order' => '5',
+                    'active' => '1',
                 ]
         ]);
     }
