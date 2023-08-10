@@ -10,7 +10,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Add new menu item</h5>
+          <h5 class="modal-title" id="addNewItem">Add new menu item</h5>
         </div>
         <div class="modal-body">
             <form 
@@ -21,15 +21,15 @@
                 @csrf
                 <div class="form-group">
                     <label for="itemShortText">Role short text</label>
-                    <input type="text" class="form-control" id="itemShortText" name="sort_text">
+                    <input type="text" class="form-control" id="itemShortTextAdd" name="sort_text">
                 </div><br>
                 <div class="form-group">
                     <label for="itemLongText">Role long text</label>
-                    <input type="text" class="form-control" id="itemLongtText" name="long_text">
+                    <input type="text" class="form-control" id="itemLongtTextAdd" name="long_text">
                 </div><br>
                 <div class="form-group">
                     <label for="desc">Description</label>
-                    <input type="text" class="form-control" id="desc" name="description">
+                    <input type="text" class="form-control" id="descAdd" name="description">
                 </div>
             </form>
         </div>

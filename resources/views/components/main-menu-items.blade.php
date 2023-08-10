@@ -5,8 +5,10 @@
 
     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 
+        
+
         @foreach ($items as $item)
-            <a class="dropdown-item" href="{{ route($item->route) }}">{{ $item->name }}</a> 
+            <a class="dropdown-item" href="@if (Route::has($item->route)){{ route($item->route) }}@else{{ route('home') }}@endif">{{ $item->name }}</a> 
         @endforeach
         @if (Auth::user()->is_admin == '1')
             <a class="dropdown-item" href="{{ route('mainAdminModule') }}">{{ __('Admin module') }}</a>
