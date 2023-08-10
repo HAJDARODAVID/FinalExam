@@ -15,6 +15,8 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    protected $primaryKey = 'id';
+
     /**
      * The attributes that are mass assignable.
      *
@@ -49,8 +51,7 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function roles(): BelongsToMany
-    {
-        return $this->belongsToMany(UserRolesModel::class);
+    public function userRoles():hasMany{
+        return $this->hasMany(UserRolesModel::class);
     }
 }
