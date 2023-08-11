@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\MainMenuModel;
 use App\Models\RolesModel;
+use App\Models\User;
 use App\Models\UserRolesModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -33,10 +34,17 @@ class HomeController extends Controller
 
     public function test()
     {   
-        $items = MainMenuModel::find(1);
-        $roles = UserRolesModel::where('user_id', Auth::user()->id)->get();
-        $roles->where('role_id', '2');
-        dd($roles);
+        $menuItems= MainMenuModel::all();
+
+        //dd($menuItems->roles);
+
+        foreach($menuItems as $items){
+            foreach ($items->roles as $role) {
+                echo $items->name . '-' . $role->sort_text . '<BR>';
+            }
+            
+        }
+
     }
 }
 

@@ -23,9 +23,9 @@ class MainMenuModel extends Model
 
     public $timestamps = false;
 
-    public function roles(): HasOne
+    public function roles(): hasMany
     {
-        return $this->hasOne(RolesModel::class, 'id', 'roles_id');
+        return $this->hasMany(RolesModel::class, 'id', 'role_id');
     }
 
 }
